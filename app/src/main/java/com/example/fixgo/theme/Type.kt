@@ -1,4 +1,4 @@
-package com.example.fixgo.ui.theme
+package com.example.fixgo.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

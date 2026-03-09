@@ -1,4 +1,4 @@
-package com.example.fixgo.ui.theme
+package com.example.admin.presentation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

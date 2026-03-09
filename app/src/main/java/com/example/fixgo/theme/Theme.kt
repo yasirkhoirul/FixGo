@@ -1,6 +1,5 @@
-package com.example.fixgo.ui.theme
+package com.example.fixgo.theme
 
-import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme

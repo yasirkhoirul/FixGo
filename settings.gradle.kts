@@ -21,4 +21,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "FixGo"
 include(":app")
- 
+include(":app:user")
+include(":app:admin")
+include(":app:core")

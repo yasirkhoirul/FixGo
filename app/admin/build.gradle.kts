@@ -4,13 +4,13 @@ plugins {
 }
 
 android {
-    namespace = "com.example.fixgo"
+    namespace = "com.example.admin"
     compileSdk {
         version = release(36)
     }
 
     defaultConfig {
-        applicationId = "com.example.fixgo"
+        applicationId = "com.example.admin"
         minSdk = 35
         targetSdk = 36
         versionCode = 1
@@ -53,7 +53,6 @@ dependencies {
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
-    implementation(project(":app:admin"))
-    implementation(project(":app:user"))
+
     implementation(project(":app:core"))
 }
