@@ -8,12 +8,13 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.core.component.navbarcomponent.FabMiddle
 import com.example.core.theme.FixGoTheme
 
 @Composable
 fun MainScaffold(modifier: Modifier = Modifier,content: @Composable (modifier: Modifier) -> Unit) {
     Scaffold(
-        floatingActionButton = { FabNavBar(onClick = {}) },
+        floatingActionButton = { FabMiddle(onClick = {}) },
         floatingActionButtonPosition = FabPosition.Center,
         bottomBar = {
             NavBar(
