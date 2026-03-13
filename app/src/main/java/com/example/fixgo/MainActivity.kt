@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.core.component.MainScaffold
 import com.example.core.theme.FixGoTheme
+import com.example.user.presentation.ui.daftar.DaftarScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,9 +21,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             FixGoTheme {
-                MainScaffold() {
-
-                }
+                DaftarScreen()
             }
         }
     }

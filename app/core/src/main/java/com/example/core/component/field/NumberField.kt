@@ -50,7 +50,7 @@ fun NumberField(modifier: Modifier = Modifier, placeHolder: String) {
     // Background color: Light Grey (Secondary100 or similar)
     val containerColor = Color(0xFFF1F5F9) // Manually setting closer to screenshot if theme differs, or use MaterialTheme.colorScheme.secondaryContainer
 
-    Column(modifier = modifier) {
+    Column(modifier = modifier.wrapContentHeight()) {
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.spacedBy(8.dp)
@@ -144,7 +144,6 @@ fun NumberField(modifier: Modifier = Modifier, placeHolder: String) {
 private fun NumberFieldPrev() {
     FixGoTheme {
         Column() {
-
             NumberField(placeHolder = "Nomor Telpon")
         }
     }
