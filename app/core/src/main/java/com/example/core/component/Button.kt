@@ -92,27 +92,26 @@ object AppButtonDefaults {
 }
 
 /**
- * Internal base Button component that wraps Material3's Button.
- * Used to centralize styling logic for the public variants below.
+ * Base Button component that wraps Material3's Button.
+ * Used for highly customizable
  */
 @Composable
-private fun Button(
+fun Button(
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
     onClick: () -> Unit = {},
-    type: ButtonType = ButtonType.PRIMARY,
-    contentPadding: PaddingValues,
-    shapeRadius: Dp,
+    buttonColors: ButtonColors = ButtonDefaults.buttonColors(),
+    border: BorderStroke? = null,
+    contentPadding: PaddingValues = PaddingValues(0.dp),
+    shapeRadius: Dp = 8.dp,
     content: @Composable (RowScope.() -> Unit),
 ) {
-
-    // 2. Use a single generic Button call
     MaterialButton(
         onClick = onClick,
         modifier = modifier,
         enabled = enabled,
-        colors = AppButtonDefaults.colors(type),
-        border = AppButtonDefaults.border(type, enabled),
+        colors = buttonColors,
+        border = border,
         contentPadding = contentPadding,
         shape = RoundedCornerShape(shapeRadius),
         content = content
@@ -127,7 +126,6 @@ private fun Button(
  * @param text The text to be displayed inside the button.
  * @param type The [ButtonType] styling (Default: PRIMARY).
  * @param size The [ButtonSize] determining padding (Default: MEDIUM).
- * @param shapeRadius Corner radius of the button (Default: 8dp).
  * @param enabled Whether the button is clickable and active.
  * @param onClick Lambda called when the button is clicked.
  */
@@ -137,7 +135,6 @@ fun Button(
     text: String,
     type: ButtonType = ButtonType.PRIMARY,
     size: ButtonSize = ButtonSize.MEDIUM,
-    shapeRadius: Dp = 8.dp,
     enabled: Boolean = true,
     onClick: () -> Unit = {},
 ) {
@@ -149,10 +146,11 @@ fun Button(
             horizontal = size.horizontalPadding,
             vertical = size.verticalPadding
         ),
+        buttonColors = AppButtonDefaults.colors(type),
+        border = AppButtonDefaults.border(type, enabled),
         onClick = onClick,
         enabled = enabled,
-        type = type,
-        shapeRadius = shapeRadius,
+        shapeRadius = 8.dp,
     ) {
         Row(
             horizontalArrangement = Arrangement.spacedBy(8.dp),
@@ -163,42 +161,6 @@ fun Button(
             if (showIcons) Icon(Icons.AutoMirrored.Filled.KeyboardArrowRight, null)
         }
     }
-}
-
-/**
- * Highly Customizable Button.
- * Allows passing a custom [content] lambda for complex internal layouts.
- *
- * @param modifier The modifier to be applied to the button.
- * @param type The [ButtonType] styling.
- * @param size The [ButtonSize] determining padding.
- * @param shapeRadius Corner radius of the button.
- * @param enabled Whether the button is clickable and active.
- * @param contentPadding Padding values for the content.
- * @param onClick Lambda called when the button is clicked.
- * @param content The composable content to be displayed inside the button row.
- */
-@Composable
-fun Button(
-    modifier: Modifier = Modifier,
-    type: ButtonType = ButtonType.PRIMARY,
-    size: ButtonSize = ButtonSize.MEDIUM,
-    shapeRadius: Dp = 8.dp,
-    enabled: Boolean = true,
-    contentPadding: PaddingValues = ButtonDefaults.ContentPadding,
-    onClick: () -> Unit = {},
-    content: @Composable (RowScope.() -> Unit),
-) {
-    Button(
-        modifier = modifier,
-        contentPadding = contentPadding,
-        onClick = onClick,
-        enabled = enabled,
-        type = type,
-        shapeRadius = shapeRadius,
-        content = content,
-        size = size,
-    )
 }
 
 
